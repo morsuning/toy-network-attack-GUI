@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+    <class>main_window</class>
+    <widget class="QMainWindow" name="main_window">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
    <string>攻击</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+      <widget class="QTabWidget" name="switch_function">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -33,13 +33,13 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+        <number>0</number>
     </property>
-    <widget class="QWidget" name="tab">
+          <widget class="QWidget" name="arp_attack">
      <attribute name="title">
       <string>ARP欺骗</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="button_find_host">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -52,7 +52,7 @@
        <string>发现主机</string>
       </property>
      </widget>
-     <widget class="QListView" name="listView">
+              <widget class="QListWidget" name="host_list">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -62,7 +62,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+              <widget class="QLineEdit" name="target_ip">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -72,7 +72,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+              <widget class="QLineEdit" name="target_mac">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -82,7 +82,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+              <widget class="QLineEdit" name="pose_ip">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -92,7 +92,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+              <widget class="QLineEdit" name="pose_mac">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -102,26 +102,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QFontComboBox" name="fontComboBox">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>10</y>
-        <width>241</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="editable">
-       <bool>true</bool>
-      </property>
-      <property name="currentText">
-       <string>双向欺骗</string>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="button_interrupt_all">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -134,7 +115,7 @@
        <string>中断所有主机网络</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+              <widget class="QLabel" name="label_native_ip">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -147,7 +128,7 @@
        <string>本机IP：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="native_ip">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -157,10 +138,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>Placeholder</string>
+          <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="label_native_mac">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -173,7 +154,7 @@
        <string>本机Mac：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="native_mac">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -183,10 +164,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>Placeholder</string>
+          <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="label_target_ip">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -199,7 +180,7 @@
        <string>攻击目标IP：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_6">
+              <widget class="QLabel" name="label_target_mac">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -212,11 +193,11 @@
        <string>攻击目标Mac：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="label_pose_ip">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>166</y>
+           <y>170</y>
         <width>71</width>
         <height>21</height>
        </rect>
@@ -225,7 +206,7 @@
        <string>伪装对象IP：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_8">
+              <widget class="QLabel" name="label_pose_mac">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -238,7 +219,7 @@
        <string>伪装对象Mac：</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="button_start_end">
       <property name="geometry">
        <rect>
         <x>270</x>
@@ -251,17 +232,7 @@
        <string>开始欺骗</string>
       </property>
      </widget>
-     <widget class="QLCDNumber" name="lcdNumber">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>320</y>
-        <width>71</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+              <widget class="QLineEdit" name="mid_man_ip">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -277,7 +248,7 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
+              <widget class="QLineEdit" name="mid_man_mac">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -290,7 +261,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_9">
+              <widget class="QLabel" name="label_mid_man_ip">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -303,7 +274,7 @@
        <string>中间人IP：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_10">
+              <widget class="QLabel" name="label_mid_man_mac">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -316,7 +287,7 @@
        <string>中间人Mac：</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox">
+              <widget class="QCheckBox" name="default_mid_man">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -332,21 +303,26 @@
        <bool>true</bool>
       </property>
      </widget>
+              <widget class="QComboBox" name="spoof_pattern">
+                  <property name="geometry">
+                      <rect>
+                          <x>150</x>
+                          <y>10</y>
+                          <width>241</width>
+                          <height>31</height>
+                      </rect>
+                  </property>
+              </widget>
     </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>ICMP欺骗</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_2">
+          <widget class="QWidget" name="syn_flood_attack">
      <attribute name="title">
       <string>SYN泛洪攻击</string>
      </attribute>
-     <widget class="QLabel" name="label_11">
+              <widget class="QLabel" name="label_target_ip_2">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>80</y>
+           <x>90</x>
+           <y>50</y>
         <width>60</width>
         <height>21</height>
        </rect>
@@ -355,11 +331,11 @@
        <string>目标IP：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_12">
+              <widget class="QLabel" name="label_target_port">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>120</y>
+           <x>90</x>
+           <y>130</y>
         <width>60</width>
         <height>21</height>
        </rect>
@@ -368,31 +344,31 @@
        <string>端口：</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
+              <widget class="QLineEdit" name="target_ip_2">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>80</y>
+           <x>210</x>
+           <y>50</y>
+           <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+              <widget class="QLineEdit" name="target_port">
+      <property name="geometry">
+       <rect>
+           <x>210</x>
+           <y>130</y>
         <width>113</width>
         <height>21</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
+              <widget class="QLabel" name="label_threads">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>120</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>170</y>
+           <x>90</x>
+           <y>210</y>
         <width>60</width>
         <height>21</height>
        </rect>
@@ -401,16 +377,68 @@
        <string>线程数：</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+              <widget class="QComboBox" name="threads">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>170</y>
-        <width>104</width>
+           <x>210</x>
+           <y>210</y>
+           <width>111</width>
         <height>26</height>
        </rect>
       </property>
-     </widget>
+              </widget>
+              <widget class="QPushButton" name="button_start_end_2">
+                  <property name="geometry">
+                      <rect>
+                          <x>230</x>
+                          <y>290</y>
+                          <width>113</width>
+                          <height>21</height>
+                      </rect>
+                  </property>
+                  <property name="text">
+                      <string>开始攻击</string>
+                  </property>
+              </widget>
+              <widget class="QLabel" name="label_logic_cpu_count">
+                  <property name="geometry">
+                      <rect>
+                          <x>70</x>
+                          <y>290</y>
+                          <width>91</width>
+                          <height>21</height>
+                      </rect>
+                  </property>
+                  <property name="text">
+                      <string>逻辑CPU个数：</string>
+                  </property>
+              </widget>
+              <widget class="QLabel" name="packet_count">
+                  <property name="geometry">
+                      <rect>
+                          <x>230</x>
+                          <y>330</y>
+                          <width>111</width>
+                          <height>21</height>
+                      </rect>
+                  </property>
+                  <property name="text">
+                      <string/>
+                  </property>
+              </widget>
+              <widget class="QLabel" name="logic_cpu_count">
+                  <property name="geometry">
+                      <rect>
+                          <x>160</x>
+                          <y>290</y>
+                          <width>51</width>
+                          <height>21</height>
+                      </rect>
+                  </property>
+                  <property name="text">
+                      <string/>
+                  </property>
+              </widget>
     </widget>
    </widget>
   </widget>

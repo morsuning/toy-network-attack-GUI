@@ -1,3 +1,0 @@
-
-class ArpAttack():
-    pass
