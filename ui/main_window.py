@@ -8,7 +8,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class UiMainWindow(object):
     def __init__(self, main_window):
         super(UiMainWindow, self).__init__()
